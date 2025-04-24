@@ -1,0 +1,17 @@
+# Ambiente virtual
+venv/
+__pycache__/
+*.pyc
+
+# Configurações do VSCode ou IDE
+.vscode/
+.idea/
+
+# Banco de dados SQLite
+*.sqlite3
+
+# Arquivos de cache
+*.log
+
+# Arquivos de ambiente
+.env
