@@ -1,4 +1,4 @@
-# usuarios/views.py
+
 
 from django.views.generic.edit import CreateView
 from django.urls import reverse_lazy
@@ -8,6 +8,7 @@ from django.contrib.auth.decorators import login_required
 from .forms import CustomUserCreationForm
 from .models import User
 from .decorators import somente_alunos, somente_professores
+
 
 class RegistroView(CreateView):
     model = User
@@ -24,12 +25,14 @@ def redirecionar_usuario(request):
     else:
         return redirect('/admin/')
 
+from django.shortcuts import render
+
 @login_required
 @somente_alunos
 def area_aluno(request):
-    return HttpResponse("Bem-vindo à área do aluno!")
+    return render(request, 'usuarios/area_aluno.html')
 
 @login_required
 @somente_professores
 def painel_professor(request):
-    return HttpResponse("Bem-vindo ao painel do professor!")
+    return render(request, 'usuarios/painel_professor.html')
